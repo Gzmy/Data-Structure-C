@@ -327,26 +327,43 @@ SListNode *FindK(SListNode *pFirst, int k)
 	return pNode;
 }
 
-void RemoveK(SListNode *pFirst, int k)
+SListNode *RemoveK(SListNode *pFirst, int k)
 {
 	SListNode *pNode = pFirst;
 	SListNode *pCur = pFirst;
-	SListNode *pDel;
-
-	while(--k)
-	{
-		pCur = pCur->pNext;
+	SListNode *pDel = NULL;
+	
+	while(k--){
+		pNode = pNode->pNext;
 	}
 
-	while(pCur->pNext)
-	{
-		pDel = pNode;
+	if(!pNode){
+		pFirst = pFirst->pNext;
+		return pFirst;
+	}
+
+	while(pNode->pNext){
 		pNode = pNode->pNext;
 		pCur = pCur->pNext;
 	}
+	pDel = pCur->pNext;
+	pCur->pNext = pCur->pNext->pNext;
+	free(pDel);
+	return pFirst;
+	//while(--k)
+	//{
+	//	pCur = pCur->pNext;
+	//}
 
-	pDel->pNext = pNode->pNext;
-	free(pNode);
+	//while(pCur->pNext)
+	//{
+	//	pDel = pNode;
+	//	pNode = pNode->pNext;
+	//	pCur = pCur->pNext;
+	//}
+
+	//pDel->pNext = pNode->pNext;
+	//free(pNode);
 }
 
 

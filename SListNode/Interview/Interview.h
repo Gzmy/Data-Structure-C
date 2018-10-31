@@ -24,4 +24,4 @@ void BubbleSort(SListNode *pFirst);//冒泡排序,不改变链表顺序,直交�
 SListNode *MergeOrderedList(SListNode *p1First, SListNode *p2First);//合并两个有序链表
 SListNode *FindMid(SListNode *pFirst);//遍历一次找到中间结点
 SListNode *FindK(SListNode *pFirst, int k);//遍历一次,找到倒数第k个结点(k从1开始)
-void RemoveK(SListNode *pFirst, int k);//遍历一次,删除倒数第k个结点(k从1开始)
+SListNode *RemoveK(SListNode *pFirst, int k);//遍历一次,删除倒数第k个结点(k从1开始)
