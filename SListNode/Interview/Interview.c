@@ -366,4 +366,56 @@ SListNode *RemoveK(SListNode *pFirst, int k)
 	//free(pNode);
 }
 
+SListNode *__createNode(int data)
+{
+    SListNode *pNewNode = (SListNode*)malloc(sizeof(SListNode));
+    pNewNode->label = data;
+    pNewNode->next = NULL;
+    pNewNode->random = NULL;
+
+    return pNewNode;
+}
+
+SListNode *Clone(SListNode *pHead)
+{
+    if(pHead == NULL){
+        return NULL;
+    }
+
+    SListNode *node = pHead;
+    SListNode *newNode = NULL;
+    SListNode *cur = NULL;
+    SListNode *tmp = NULL;
+
+    //copy after
+    while(node){
+        newNode = __createNode(node->label);
+        newNode->next = node->next;
+        node->next = newNode;
+        node = newNode->next;
+    }
+
+    //copy random
+    node = pHead;
+    while(node){
+        if(node->random != NULL){
+            node->next->random = node->random->next;
+        }
+        node = node->next->next;
+    }
+
+    //duna
+    node = pHead;
+    cur = tmp = node->next;
+    node->next = tmp->next;
+    node = node->next;
+
+    while(node){
+        tmp->next = node->next;
+        tmp = tmp->next;
+        node->next = tmp->next;
+        node = node->next;
+    }
+    return cur;
+}
 
