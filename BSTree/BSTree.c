@@ -130,7 +130,7 @@ int BSTreeDel(BSTreeNode **root, Key key)
 	//	if(Node->key == key)
 	//	{
 	//		//删除
-	//		if(Node->left == NULL)
+	//		if(Node->left == NULL && Node->right != NULL)
 	//		{
 	//			if(parent == NULL)
 	//			{
@@ -146,7 +146,7 @@ int BSTreeDel(BSTreeNode **root, Key key)
 	//			free(Node);
 	//			return 1;
 	//		}
-	//		else if(Node->right == NULL)
+	//		else if(Node->right == NULL && Node->left != NULL)
 	//		{
 	//			if(parent == NULL)
 	//			{
