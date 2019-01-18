@@ -1,11 +1,9 @@
 .PHONY:clean
 
-main:main.c Sort.o
-	gcc -o $@ $^
-
-%.o:%.c
-	gcc -c $^ -o $@
+main: main.o sort.cc
+	g++ -o $@ $^
+main.o:main.cc
+	g++ -c $^ -o $@
 
 clean:
-	rm *.o main
-
+	rm main main.o
